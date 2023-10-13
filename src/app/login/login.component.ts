@@ -20,7 +20,7 @@ msg:string="";
 
     if(this.loginService.checkLoginDetails(login)){
       console.log("about to navigate to home");
-       this.router.navigate(["/home"]);
+       this.router.navigate(["dashboard"]);
     }else {
       console.log("got an error");
       this.msg="incorrect details, try again";
