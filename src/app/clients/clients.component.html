@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Clients</title>
-</head>
-<body>
+<h1>My Clients</h1>
     <table class="table">
-        <caption>List of users</caption>
+        
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -17,25 +10,18 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>Design</td>
+          <tr *ngFor="let client of clients">
+            <th scope="row">{{client.id}}</th>
+            <td>{{client.firstName}}</td>
+            <td>{{client.lastName}}</td>
+            <td>{{client.portfolio}}</td>
           </tr>
           <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>Software engineering</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>Bird</td>
-            <td>Finance</td>
+            <th scope="row"><button type="button" (click)="addClient()" class="btn btn-primary btn-lg">Add Client</button></th>
+            <td><input type="text" #firstName (keyup)="setFirstName(firstName.value)" placeholder="Enter First Name" name="nameInput"></td>
+            <td><input type="text" #lastName (keyup)="setLastName(lastName.value)"placeholder="Enter Last Name" name="lastName"></td>
+            <td><input type="text" #portfolio (keyup)="setPortfolio(portfolio.value)"placeholder="Enter Portfolio" name="portfolio"></td>
           </tr>
         </tbody>
       </table>
-</body>
-</html>
+    
